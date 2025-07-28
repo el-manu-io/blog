@@ -1,2 +1,1 @@
-# Blog
 ### Null Bit Presse

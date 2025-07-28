@@ -1,0 +1,18 @@
+{
+  "name": "Null Bit Presse",
+  "short_name": "Null Bit Presse",
+  "description": "Verlustfreie Verarbeitung von Bits und Logik.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff", 
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
