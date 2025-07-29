@@ -2,7 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:url" content="https://blog.zahlenpresse.de">
     <meta property="og:title" content="Null Bit Presse">
@@ -13,18 +13,105 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png">
 
     <style>
-      font-family: sans-serif;
+      *,
+      *::before,
+      *::after {
+        font-family: sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 100%;
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        font-size: 1rem;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 30px 1fr 30px;
+        grid-template-areas: "aside-left main aside-right";
+      }
+
+      body > aside {
+        grid-area: aside-left;
+        position: relative;
+        width: 30px;
+      }
+
+      body > aside > nav {
+        position: fixed;
+        height: 100%;
+      }
+
+      body > aside + main + aside {
+        grid-area: aside-right;
+        position: relative;
+        width: 30px;
+      }
+
+      body > aside + main + aside > nav {
+        position: fixed;
+        height: 100%;
+      }
+
+      body > main {
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main > header {
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main > article {
+        flex-shrink: 0;
+        flex-grow: 1;
+      }
+
+      main > footer {
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 { margin: 10px 0 10px 0; }
+      p { margin: 5px 0 5px; }
     </style>
   </head>
 
   <body>
-    <header>
-      <h1>Null Bit Presse</h1>
-      <p>Verlustfreie Verarbeitung von Bits und Logik.</p>
-    </header>
+    <aside><nav></nav></aside>
+    <main>
+      <header>
+        <h1>Null Bit Presse</h1>
+        <p>Verlustfreie Verarbeitung von Bits und Logik.</p>
+      </header>
 
-    <footer>
-      <p>&copy; 2025 Blog. Rechte erhalten.</p>
-    </footer>
+      <article>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+      </article>
+
+      <footer>
+        <p>&copy; 2025 Blog, CC0 1.0 Universal.</p>
+      </footer>
+    </main>
+
+    <aside><nav></nav></aside>
   </body>
 </html>
