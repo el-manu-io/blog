@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="http://blog.zahlenpresse.de">
+    <meta property="og:title" content="Null Bit Presse">
+    <meta property="og:description" content="Verlustfreie Verarbeitung von Bits und Logik.">
+    <title>Null Bit Presse</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+    <style>
+      #masonry {
+        columns: 5;
+        column-gap: 15px;
+      }
+
+      #masonry img {
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        display: block;
+        break-inside: avoid;
+      }
+
+      @media (max-width: 1200px) {
+        #masonry { columns: 4; }
+      }
+
+      @media (max-width: 900px) {
+        #masonry { columns: 3; }
+      }
+
+      @media (max-width: 600px) {
+        #masonry { columns: 2; }
+      }
+
+      @media (max-width: 300px) {
+        #masonry { columns: 1; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <aside><nav></nav></aside>
+    <main>
+      <header>
+        <h1>Sevilla 2025</h1>
+      </header>
+
+      <article>
+        <div id="masonry"></div>
+      </article>
+    </main>
+    <aside><nav></nav></aside>
+
+    <template id="img">
+      <img loading="lazy">
+    </template>
+
+    <script type="module">
+      import gallery from "/static/sevilla-2025/gallery.js";
+      const tmpArticle = document.getElementById('masonry');
+      const tmpImage = document.getElementById('img');
+
+      gallery.topics.forEach((topic) => {
+        topic.images.forEach((image) => {
+          const host = window.location.protocol + "//" + window.location.host;
+          const prefix = "/static/sevilla-2025/";
+          const src = new URL(image, `${host}${prefix}`);
+
+          const img = tmpImage.content.querySelector('img');
+          if (img) { img.src = src.toString(); }
+
+          const clone = tmpImage.content.cloneNode(true);
+          tmpArticle.append(clone);
+        });
+      });
+    </script>
+  </body>
+</html>
