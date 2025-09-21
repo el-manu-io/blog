@@ -19,7 +19,7 @@
 
     <main>
       <header>
-        <h1>Sevilla 2025</h1>
+        <h1>Lelystad 2024</h1>
       </header>
 
       <article>
@@ -44,7 +44,7 @@
     </template>
 
     <script type="module">
-      import gallery from "/static/sevilla-2025/gallery.js";
+      import gallery from "/static/lelystad-2024/gallery.js";
       import { loadImage, onClick } from "/static/js/masonry.js";
       const tmpArticle = document.getElementById('masonry');
       const tmpImage = document.getElementById('img');
@@ -54,7 +54,7 @@
 
       gallery.topics.forEach((topic) => {
         topic.images.forEach((path) => {
-          loadImage(path, '/static/sevilla-2025/', tmpImage, (template) => {
+          loadImage(path, '/static/lelystad-2024/', tmpImage, (template) => {
             const clone = template.content.cloneNode(true);
             tmpArticle.append(clone);
           });

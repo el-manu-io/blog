@@ -76,3 +76,64 @@ main > footer {
 
 h1 { margin: 10px 0 10px 0; }
 p { margin: 5px 0 5px; }
+
+table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+table tr {
+  border-bottom: clamp(1px, 0.125rem, 2px) solid #ccc;
+}
+
+table tr:last-child {
+  border-bottom: none;
+}
+
+table tr td {
+  white-space: nowrap;
+  padding: clamp(4px, 0.5rem, 8px);
+  padding-right: 2rem;
+  text-align: left;
+}
+
+table tr td:first-child {
+  padding-left: 0;
+}
+
+table tr td.stretch {
+  width: 100%;
+}
+
+a {
+  position: relative;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: normal;
+  padding: 0.2rem 0;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: clamp(1px, 0.125rem, 2px);
+  background-color: #007bff;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+a:active::after,
+a:hover::after,
+a:focus::after {
+  transform: scaleX(1);
+}
+
+a:focus-visible {
+  outline: clamp(1px, 0.125rem, 2px) dotted #000;
+  outline-offset: clamp(0.5px, 0.04rem, 1px);
+}
