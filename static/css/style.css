@@ -10,23 +10,25 @@
 html {
   font-size: 100%;
   width: 100%;
+  min-width: 320px;
   height: 100%;
 }
 
 body {
-  font-size: 1rem;
+  font-size: clamp(0.75rem, 3.5vw, 1rem);
   width: 100%;
+  min-width: 320px;
   height: 100%;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 30px 1fr 30px;
+  grid-template-columns: 0.5rem 1fr 0.5rem;
   grid-template-areas: "aside-left main aside-right";
 }
 
 body > aside {
   grid-area: aside-left;
   position: relative;
-  width: 30px;
+  width: 100%;
 }
 
 body > aside > nav {
@@ -37,7 +39,7 @@ body > aside > nav {
 body > aside + main + aside {
   grid-area: aside-right;
   position: relative;
-  width: 30px;
+  width: 100%;
 }
 
 body > aside + main + aside > nav {
@@ -47,6 +49,7 @@ body > aside + main + aside > nav {
 
 body > main {
   grid-area: main;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -58,6 +61,11 @@ main > header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+main > header p,
+main > header h1 {
+  text-align: center;
 }
 
 main > article {
@@ -74,13 +82,14 @@ main > footer {
   align-items: center;
 }
 
-h1 { margin: 10px 0 10px 0; }
-p { margin: 5px 0 5px; }
+h1 { margin: 0; }
+p { margin: 0; }
 
 table {
   width: 100%;
   table-layout: auto;
   border-collapse: collapse;
+  margin: 20px 0 20px 0;
 }
 
 table tr {
@@ -93,8 +102,8 @@ table tr:last-child {
 
 table tr td {
   white-space: nowrap;
-  padding: clamp(4px, 0.5rem, 8px);
-  padding-right: 2rem;
+  padding: clamp(2px, 0.250rem, 4px);
+  padding-right: 1rem;
   text-align: left;
 }
 
@@ -135,5 +144,13 @@ a:focus::after {
 
 a:focus-visible {
   outline: clamp(1px, 0.125rem, 2px) dotted #000;
-  outline-offset: clamp(0.5px, 0.04rem, 1px);
+  outline-offset: clamp(1px, 0.125rem, 2px);
+}
+
+@media (min-width: 576px) {
+  body {
+    grid-template-rows: 1fr;
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-areas: "aside-left main aside-right";
+  }
 }
