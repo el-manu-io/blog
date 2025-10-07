@@ -39,7 +39,8 @@ export default {
            "photos/img14.jpg",
            "photos/img09.jpg",
            "photos/img22.jpg",
-           "photos/img17.jpg"
+           "photos/img17.jpg",
+           "photos/img21.jpg"
         ]
     },
     {
