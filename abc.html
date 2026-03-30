@@ -14,8 +14,8 @@
       Array.from(form.elements).forEach((element) => {
         const name = element.name;
         console.log('element.name', element.name);
-        console.log(form[element.name].value);
-        if (name) { console.log(form.elements.namedItem(name)); }
+        console.log('value', form[element.name].value);
+        // if (name) { console.log(form.elements.namedItem(name)); }
       });
     </script>
   </body>
