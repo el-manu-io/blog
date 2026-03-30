@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <form id="abc" name="abc"></form>
+    <input form="abc" type="radio" name="abc" value="a">
+    <input form="abc" type="radio" name="abc" value="b">
+    <input form="abc" type="radio" name="abc" value="c">
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      eruda.init();
+      const elements = Array.from(form.elements);
+      for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        const name = element.name;
+        if (name) { console.log(form.elements.namedItem(name)); }
+      }
+    </script>
+  </body>
+</html>
