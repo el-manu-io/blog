@@ -14,7 +14,10 @@
       Array.from(form.elements).forEach((element) => {
         const name = element.name;
         console.log('element.name', element.name);
-        if (name) { const radio = form.elements.namedItem(name)); console.log('radio', radio.name, radio.value); }
+        if (name) {
+          const radio = form.elements.namedItem(name);
+          console.log('radio', radio.name, radio.value);
+        }
       });
     </script>
   </body>
