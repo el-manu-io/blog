@@ -5,7 +5,7 @@
   <body>
     <form id="abc" name="abc"></form>
     <input form="abc" type="radio" name="abc" value="a">
-    <input form="abc" type="radio" name="abc" value="b">
+    <input form="abc" type="radio" name="abc" value="b" checked>
     <input form="abc" type="radio" name="abc" value="c">
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>
@@ -14,8 +14,7 @@
       Array.from(form.elements).forEach((element) => {
         const name = element.name;
         console.log('element.name', element.name);
-        console.log('value', form[element.name].value);
-        // if (name) { console.log(form.elements.namedItem(name)); }
+        if (name) { const radio = form.elements.namedItem(name)); console.log('radio', radio.name, radio.value); }
       });
     </script>
   </body>
