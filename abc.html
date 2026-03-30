@@ -1,4 +1,7 @@
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
   <body>
     <form id="abc" name="abc"></form>
     <input form="abc" type="radio" name="abc" value="a">
@@ -8,12 +11,11 @@
     <script>
       eruda.init();
       const form = document.forms['abc'];
-      const elements = Array.from(form.elements);
-      for (let i = 0; i < elements.length; i++) {
-        const element = elements[i];
+      Array.from(form.elements).forEach((element) => {
         const name = element.name;
+        console.log('element.name', element.name);
         if (name) { console.log(form.elements.namedItem(name)); }
-      }
+      }});
     </script>
   </body>
 </html>
