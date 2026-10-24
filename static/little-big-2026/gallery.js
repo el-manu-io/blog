@@ -28,5 +28,14 @@ export default {
          "photos/img009.jpg",
         ]
     },
+    {
+      "title": "Day 4",
+      "images":
+        [
+         "photos/img010.jpg",
+         "photos/img011.jpg",
+         "photos/img012.jpg",
+        ]
+    },
   ]
 };
