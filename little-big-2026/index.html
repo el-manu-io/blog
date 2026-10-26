@@ -64,7 +64,10 @@
 
     <template id="dialog">
       <dialog>
-        <div class="content"><img></div>
+        <div class="content">
+          <div id="lupe" class="magnifier-glass"></div>
+          <img class="magnifier-target">
+        </div>
       </dialog>
     </template>
 
@@ -84,13 +87,13 @@
       const tmpImage = document.getElementById('img');
       const tmpDialog = document.getElementById('dialog');
 
-      onClick(tmpArticle, tmpDialog);
+      onClick(tmpArticle, tmpDialog, true);
 
       if (gallery) {
         document.querySelector('#site-title').textContent = gallery.title || 'Little Big 2026';
         document.title = gallery.title || 'Little Big 2026';
 
-        gallery.topics.forEach((topic, dayIndex) => {
+        gallery.topics.reverse().forEach((topic, dayIndex) => {
           const dayId = `day-${dayIndex + 1}`;
           const section = document.createElement('section');
           section.className = 'day';
@@ -140,6 +143,30 @@
           section.append(panels);
           comic.append(section);
         });
+        function moveMagnifier(e) {
+    // Hole die exakte Position des Bildes auf dem Bildschirm
+    const rect = img.getBoundingClientRect();
+
+    // Berechne die Mausposition relativ zum Bild
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+
+    // Verhindere, dass die Lupe aus dem Bildbereich herauswandert
+    if (x > img.width) { x = img.width; }
+    if (x < 0) { x = 0; }
+    if (y > img.height) { y = img.height; }
+    if (y < 0) { y = 0; }
+
+    // Positioniere das Lupenglas zentriert unter dem Mauszeiger
+    // (Subtrahiere die Hälfte der Lupenbreite/-höhe)
+    glass.style.left = `${x - (glass.offsetWidth / 2)}px`;
+    glass.style.top = `${y - (glass.offsetHeight / 2)}px`;
+
+    // Verschiebe den Bildausschnitt innerhalb der Lupe passend zur Position
+    const bgX = (x * zoom) - (glass.offsetWidth / 2);
+    const bgY = (y * zoom) - (glass.offsetHeight / 2);
+    glass.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+  }
       }
     </script>
   </body>
