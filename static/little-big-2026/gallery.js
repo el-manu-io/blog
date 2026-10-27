@@ -5,8 +5,6 @@ export default {
      "title": "Day 1",
      "images":
        [
-         "photos/img001.jpg",
-         "photos/img002.jpg",
          "photos/img003.jpg",
          "photos/img004.jpg"
        ]
@@ -73,8 +71,24 @@ export default {
       "title": "Day 9",
       "images":
         [
+         "photos/img027.jpg",
+         "photos/img028.jpg",
+        ]
+    },
+    {
+      "title": "Day 10",
+      "images":
+        [
          "photos/img021.jpg",
          "photos/img022.jpg",
+        ]
+    },
+    {
+      "title": "Day 11",
+      "images":
+        [
+         "photos/img023.jpg",
+         "photos/img024.jpg",
         ]
     },
   ]
