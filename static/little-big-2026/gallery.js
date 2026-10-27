@@ -69,5 +69,13 @@ export default {
          "photos/img020.jpg",
         ]
     },
+    {
+      "title": "Day 9",
+      "images":
+        [
+         "photos/img021.jpg",
+         "photos/img022.jpg",
+        ]
+    },
   ]
 };
