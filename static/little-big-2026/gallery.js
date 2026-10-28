@@ -5,8 +5,6 @@ export default {
      "title": "Day 1",
      "images":
        [
-         "photos/img001.jpg",
-         "photos/img002.jpg",
          "photos/img003.jpg",
          "photos/img004.jpg"
        ]
