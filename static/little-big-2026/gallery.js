@@ -91,5 +91,13 @@ export default {
          "photos/img024.jpg",
         ]
     },
+    {
+      "title": "Day 12",
+      "images":
+        [
+         "photos/img025.jpg",
+         "photos/img026.jpg",
+        ]
+    },
   ]
 };
